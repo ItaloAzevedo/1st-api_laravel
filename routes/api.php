@@ -46,4 +46,6 @@ Route::get('/teste', function(Request $request){
 Route::namespace('\App\Http\Controllers\Api')->group(function(){
     /*Acessando o metodo 'index' do 'ProductController' através da rota '/products'*/
     Route::get('/products', 'ProductController@index');
+    Route::get('/products/{id}', 'ProductController@show');
+    Route::post('/products', 'ProductController@save');
 });
