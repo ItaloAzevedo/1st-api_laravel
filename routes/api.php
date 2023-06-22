@@ -40,3 +40,10 @@ Route::get('/teste', function(Request $request){
     return $response;
 
 });
+
+/*Configuração do grupo de rotas do namespace para 'Api',
+ onde qualquer rota que estiver dentro desse grupo poderá ser acessado bastando adiciona-lo*/
+Route::namespace('\App\Http\Controllers\Api')->group(function(){
+    /*Acessando o metodo 'index' do 'ProductController' através da rota '/products'*/
+    Route::get('/products', 'ProductController@index');
+});
