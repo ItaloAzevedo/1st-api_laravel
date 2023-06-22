@@ -36,4 +36,21 @@ class ProductController extends Controller
 
         return response()->json($product);
     }
+    
+    /*Metodo Update, onde o usuário passará o paramêtro ID e o campo que será atualizado*/
+    public function update(Request $request){
+        $data = $request->all();
+        $product = $this->product->find($data['id']);
+        $product->update($data);
+
+        return response()->json($product);
+    }
+    
+    /*Metodo Delete, onde o usuário passará o paramêtro ID e o campo que será deletado*/
+    public function delete($id){
+        $product = $this->product->find($id);
+        $product->delete();
+
+        return response()->json(['data' => ['msg' => 'O Produto '.$id.' foi removido com sucesso!!']]);
+    }
 }

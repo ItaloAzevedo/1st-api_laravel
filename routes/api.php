@@ -48,4 +48,7 @@ Route::namespace('\App\Http\Controllers\Api')->group(function(){
     Route::get('/products', 'ProductController@index');
     Route::get('/products/{id}', 'ProductController@show');
     Route::post('/products', 'ProductController@save');
+    Route::put('/products', 'ProductController@update');
+    Route::patch('/products', 'ProductController@update');
+    Route::delete('/products/{id}', 'ProductController@delete');
 });
